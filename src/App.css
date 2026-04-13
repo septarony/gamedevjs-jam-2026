@@ -1,42 +1,133 @@
+:root {
+  --copper: #b66d3b;
+  --copper-deep: #8b4a22;
+  --old-wood: #4a3428;
+  --wood-light: #70503e;
+  --steel-brown: #5f564d;
+  --steel-dark: #2e2b29;
+  --linen: #efe1cc;
+  --danger: #b2321f;
+}
+
 #root {
-  max-width: 1280px;
+  min-height: 100vh;
+}
+
+.factory-scene {
+  min-height: 100vh;
+  padding: 2rem 1rem 3rem;
+  background:
+    radial-gradient(circle at 20% 15%, rgba(182, 109, 59, 0.45), transparent 30%),
+    radial-gradient(circle at 80% 10%, rgba(95, 86, 77, 0.45), transparent 35%),
+    linear-gradient(160deg, #241a14 0%, #2f241d 40%, #191513 100%);
+  color: var(--linen);
+}
+
+.panel {
+  width: min(980px, 100%);
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 1.4rem;
+  border: 1px solid rgba(182, 109, 59, 0.5);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(74, 52, 40, 0.92), rgba(46, 43, 41, 0.95));
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.35);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+h1,
+h2 {
+  margin: 0;
+  font-family: Cambria, "Palatino Linotype", "Book Antiqua", serif;
+  letter-spacing: 0.02em;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+h1 {
+  color: #f3c389;
+  font-size: clamp(1.6rem, 2.2vw, 2.3rem);
+}
+
+.subtitle {
+  margin: 0.6rem 0 1.2rem;
+  color: #e5c7a0;
+}
+
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(160px, 1fr));
+  gap: 0.75rem;
+}
+
+.status-card {
+  padding: 0.75rem;
+  border-radius: 10px;
+  border: 1px solid rgba(239, 225, 204, 0.2);
+  background: linear-gradient(165deg, rgba(112, 80, 62, 0.48), rgba(95, 86, 77, 0.38));
+}
+
+.status-card h2 {
+  font-size: 0.92rem;
+  color: #f0d5b3;
+}
+
+.value {
+  margin-top: 0.25rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #fff4df;
+}
+
+.control-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(160px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1.2rem;
+}
+
+button {
+  padding: 0.72rem 0.9rem;
+  border: 1px solid rgba(243, 195, 137, 0.45);
+  border-radius: 10px;
+  font-weight: 700;
+  color: #231c16;
+  background: linear-gradient(180deg, #e0ab74, #ba7845);
+  transition: transform 140ms ease, filter 140ms ease;
+}
+
+button:hover:enabled {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.fact-box,
+.game-over {
+  margin-top: 1.15rem;
+  padding: 0.9rem;
+  border-radius: 10px;
+  border: 1px solid rgba(239, 225, 204, 0.3);
+  background: rgba(38, 31, 27, 0.6);
+}
+
+.fact-box p,
+.game-over p {
+  margin: 0.45rem 0 0;
+  line-height: 1.45;
+}
+
+.game-over {
+  border-color: rgba(178, 50, 31, 0.6);
+}
+
+.game-over h2 {
+  color: #ff9c7e;
+}
+
+@media (max-width: 800px) {
+  .status-grid,
+  .control-row {
+    grid-template-columns: 1fr;
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
